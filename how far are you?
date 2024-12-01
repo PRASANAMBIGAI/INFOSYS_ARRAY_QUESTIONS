@@ -26,7 +26,8 @@ int main()
     if (first == -1 || last == -1 || first == last) 
     {
         printf("-1\n");
-    } else
+    }
+   else
     {
         printf("%d\n", last - first);
     }
