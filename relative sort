@@ -1,0 +1,53 @@
+#include <stdio.h>
+int main()
+{
+	int N;
+	scanf("%d", &N);
+	int ids[N], heights[N];
+	for (int i = 0; i < N; i++)
+	{
+		if (i == N - 1)
+		{
+			scanf("%d", &ids[i]);
+		} else {
+			scanf("%d,", &ids[i]);
+		}
+	}
+	for (int i = 0; i < N; i++)
+	{
+		if (i == N - 1)
+		{
+			scanf("%d", &heights[i]);
+		} else
+		{
+			scanf("%d,", &heights[i]);
+		}
+	}
+
+	for (int i = 0; i < N - 1; i++)
+	{
+		for (int j = 0; j < N - 1 - i; j++)
+		{
+			if (heights[j] > heights[j + 1])
+			{
+				// Swap heights
+				int tempHeight = heights[j];
+				heights[j] = heights[j + 1];
+				heights[j + 1] = tempHeight;
+
+				// Swap corresponding IDs
+				int tempId = ids[j];
+				ids[j] = ids[j + 1];
+				ids[j + 1] = tempId;
+			}
+		}
+	}
+	for (int i = 0; i < N; i++)
+	{
+		if (i > 0) printf(",");
+		printf("%d", ids[i]);
+	}
+	printf("\n");
+
+	return 0;
+}
