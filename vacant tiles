@@ -1,0 +1,36 @@
+#include <stdio.h>
+int main() {
+	int M, N, W;
+	scanf("%d,%d,%d", &M, &N, &W);
+	int room[M][N];
+	for (int i = 0; i < M; i++) 
+	{
+		for (int j = 0; j < N; j++) 
+		{
+			room[i][j] = 0;
+		}
+	}
+	for (int w = 0; w < W; w++)
+	{
+		int R, T1, T2;
+		scanf("%d,%d,%d", &R, &T1, &T2);
+		for (int t = T1 - 1; t < T2; t++) 
+		{
+			room[R - 1][t] = 1;
+		}
+	}
+	int vacant_count = 0;
+	for (int i = 0; i < M; i++) 
+	{
+		for (int j = 0; j < N; j++)
+		{
+			if (room[i][j] == 0) 
+			{
+				vacant_count++;
+			}
+		}
+	}
+	printf("%d\n", vacant_count);
+	return 0;
+}
+
